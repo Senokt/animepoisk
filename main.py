@@ -5,9 +5,9 @@ from telebot import types
 
 import telebot
 
-TOKEN = 'ВАШ ТОКЕН'
+TOKEN = '5218793149:AAGHJd7yVvzJXezTfQ0e77tnbStIpVWS99g'
 bot = telebot.TeleBot(TOKEN)
-server = Flask(__name__)
+server = Flask(__animepoisk__)
 
 
 #КОД ТЕЛЕБОТА
