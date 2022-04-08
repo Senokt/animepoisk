@@ -7,11 +7,12 @@ import telebot
 
 TOKEN = '5218793149:AAGHJd7yVvzJXezTfQ0e77tnbStIpVWS99g'
 bot = telebot.TeleBot(TOKEN)
-server = Flask(__animepoisk__)
+server = Flask(__name__)
 
 
-#КОД ТЕЛЕБОТА
-
+@bot.message_handler(commands=['admin'])
+def handle_command(message):
+    bot.send_message(message.chat.id, 'Введите пароль, чтобы получить доступ к панели администратора')
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
@@ -23,7 +24,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://<Название_вашего_хероку_приложения>.herokuapp.com/' + TOKEN)
+    bot.set_webhook(url='https://animepoisk.herokuapp.com/' + TOKEN)
     return "!", 200
 
 if __name__ == "__main__":
